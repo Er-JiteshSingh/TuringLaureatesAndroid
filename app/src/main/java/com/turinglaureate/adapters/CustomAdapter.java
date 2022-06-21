@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.turinglaureate.R;
 import com.turinglaureate.retrocall.ResponseModel;
 
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
-    private List<ResponseModel> data;
+    private final List<ResponseModel> data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView name;
@@ -86,7 +87,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         viewHolder.getAffiliation().setText(data.get(position).getAffiliation());
         viewHolder.getCountry().setText(data.get(position).getCountry());
         viewHolder.getYear().setText(data.get(position).getYear());
-//        viewHolder.getImg().setIm(data.get(position).getName());
+        Glide.with(viewHolder.name.getContext()).load(data.get(position).getImage()).into(viewHolder.getImg());
     }
 
     @Override
