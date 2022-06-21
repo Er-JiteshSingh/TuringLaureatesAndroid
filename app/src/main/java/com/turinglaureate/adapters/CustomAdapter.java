@@ -1,45 +1,71 @@
 package com.turinglaureate.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.turinglaureate.R;
-import com.turinglaureate.activities.LaureatesActivity;
-import com.turinglaureate.modals.LaureateData;
+import com.turinglaureate.retrocall.ResponseModel;
 
 import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
-    //    private String[] localDataSet;
-    private final Context mContext;
-    private final List<LaureateData> mDataList;
+    private List<ResponseModel> data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        private final TextView name;
+        private final TextView year;
+        private final TextView citation;
+        private final TextView affiliation;
+        private final TextView country;
+        private final ImageView img;
 
         public ViewHolder(View view) {
             super(view);
 
-            textView = (TextView) view.findViewById(R.id.name);
+            name = (TextView) view.findViewById(R.id.name);
+            year = (TextView) view.findViewById(R.id.year);
+            citation = (TextView) view.findViewById(R.id.citation);
+            affiliation = (TextView) view.findViewById(R.id.affiliation);
+            country = (TextView) view.findViewById(R.id.country);
+            img = (ImageView) view.findViewById(R.id.img);
+
         }
 
-        public TextView getTextView() {
-            return textView;
+        public TextView getName() {
+            return name;
         }
+
+        public TextView getYear() {
+            return year;
+        }
+
+        public TextView getCitation() {
+            return citation;
+        }
+
+        public TextView getAffiliation() {
+            return affiliation;
+        }
+
+        public TextView getCountry() {
+            return country;
+        }
+
+        public ImageView getImg() {
+            return img;
+        }
+
     }
 
-    //    public CustomAdapter(LaureatesActivity laureatesActivity, String[] dataSet, Context mContext) {
-    public CustomAdapter(Context mContext, List<LaureateData> mDataList) {
-        this.mContext = mContext;
-        this.mDataList = mDataList;
-//            localDataSet = dataSet;
+    public CustomAdapter(List<ResponseModel> data) {
+        this.data = data;
     }
 
     @NonNull
@@ -55,14 +81,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
-        CityDataItem cityDataItem = mDataList.get(position);
-        holder.textView.setText(cityDataItem.getCityName());
-
-        viewHolder.getTextView().setText(localDataSet[position]);
+        viewHolder.getName().setText(data.get(position).getName());
+        viewHolder.getCitation().setText(data.get(position).getDescription());
+        viewHolder.getAffiliation().setText(data.get(position).getAffiliation());
+        viewHolder.getCountry().setText(data.get(position).getCountry());
+        viewHolder.getYear().setText(data.get(position).getYear());
+//        viewHolder.getImg().setIm(data.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return localDataSet.length;
+        return data.size();
     }
 }

@@ -1,13 +1,11 @@
 package com.turinglaureate.activities;
 
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.turinglaureate.R;
 import com.turinglaureate.adapters.CustomAdapter;
@@ -21,15 +19,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LaureatesActivity extends AppCompatActivity {
-    private TextView tv;
-    private Button btn;
+
     private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laureates);
-
 
         recyclerView
                 = (RecyclerView) findViewById(
@@ -38,19 +34,8 @@ public class LaureatesActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
 
-        String[] mDataList={ "Jeffrey","David","Ullman"};
-        CustomAdapter myDataAdapter=new CustomAdapter(this,mDataList);
-        recyclerView.setAdapter(myDataAdapter);
+        processData();
 
-        btn = findViewById(R.id.btn);
-//        tv=findViewById(R.id.textView);
-
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                processData();
-//            }
-//        });
     }
 
     private void processData() {
@@ -63,17 +48,8 @@ public class LaureatesActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<ResponseModel>> call, Response<List<ResponseModel>> response) {
                 List<ResponseModel> data = response.body();
-                for (ResponseModel rm : data) {
-                    tv.append("Id " + rm.getId());
-                    tv.append(" Name " + rm.getName() + " ");
-                    tv.append(" " + rm.getCountry() + " ");
-                    tv.append(" " + rm.getYear() + " ");
-                    tv.append(" " + rm.getAffiliation() + " ");
-                    tv.append(" " + rm.getDescription() + " ");
-//                    Toast.makeText(getApplicationContext(),rm.getName() + rm.getId() + rm.getAffiliation() + rm.getDescription(),Toast.LENGTH_SHORT).show();
-
-
-                }
+                CustomAdapter adapter = new CustomAdapter(data);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override

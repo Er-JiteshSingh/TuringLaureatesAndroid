@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class ResponseModel
 {
-    private int id;
+    private String id;
     private String name;
     private String year;
     private String country;
@@ -16,11 +16,11 @@ public class ResponseModel
     public ResponseModel() {
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

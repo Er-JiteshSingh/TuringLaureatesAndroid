@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiController
 {
-   private static final String url="http://192.168.43.54:9090/";
+   private static final String url="https://veca.herokuapp.com/";
    private static ApiController clientObject;
    private static Retrofit retrofit;
 

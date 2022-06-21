@@ -14,12 +14,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Button btn = findViewById(R.id.btn);
 
         btn.setOnClickListener(view -> {
-            Intent laurInt = new Intent(MainActivity.this, LaureatesActivity.class);
-            startActivity(laurInt);
+
+            Intent laureateIntent = new Intent(getApplicationContext(), LaureatesActivity.class);
+
+            startActivity(laureateIntent);
         });
     }
 }
