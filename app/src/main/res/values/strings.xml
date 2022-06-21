@@ -1,4 +1,12 @@
 <resources>
-    <string name="app_name">TuringLaureate</string>
-    <string name="laureats">Laureats</string>
+    <string name="app_name">Turing Laureates</string>
+    <string name="laureates">Laureates</string>
+    <string name="hola_i_am_dummy">Hola I Am Dummy</string>
+    <string name="_2020">2020</string>
+    <string name="year">Year :</string>
+    <string name="country">Country :</string>
+    <string name="dummy_state">dummy State</string>
+    <string name="affiliation">Affiliation :</string>
+    <string name="citation_dummy">For fundamental algorithms and theory underlying programming language implementation and for synthesizing these results and those of others in their highly influential books, which educated generations of computer scientists.</string>
+    <string name="citation">Citation :</string>
 </resources>

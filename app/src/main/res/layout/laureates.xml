@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A6DCD6"
     android:orientation="vertical">
 
     <TextView
@@ -11,7 +13,7 @@
         android:layout_gravity="start"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:text="Jeffrey David Ullman"
+        android:text="@string/hola_i_am_dummy"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -20,57 +22,62 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:text="Year : " />
+                android:text="@string/year" />
 
             <TextView
                 android:id="@+id/year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2020" />
-        </LinearLayout>
+                android:text="@string/_2020" />
 
-        <ImageView
-            android:id="@+id/img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/img" />
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
+                android:src="@drawable/dummy"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <TextView
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:text="Citation : " />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/citation" />
 
     <TextView
         android:id="@+id/citation"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/teal_200"
-        android:text="For fundamental algorithms and theory underlying
-        programming language implementation and for synthesizing these
-         results and those of others in their highly influential books, which
-         educated generations of computer scientists." />
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/citation_dummy" />
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Affiliation : " />
+            android:text="@string/affiliation" />
 
         <TextView
             android:id="@+id/affiliation"
@@ -82,19 +89,24 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Country : " />
+            android:text="@string/country" />
 
         <TextView
             android:id="@+id/country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="United States" />
+            android:text="@string/dummy_state" />
     </LinearLayout>
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=".........................................................................................................."
+        android:textColor="@color/white" />
 </LinearLayout>
